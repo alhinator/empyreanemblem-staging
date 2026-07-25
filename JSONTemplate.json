@@ -1,0 +1,692 @@
+{
+  "Team": { //Required
+    "Name": "Team X", //Required. String is formatted for UI display, JSON file name must match this value sans spaces
+    "WorkbookID": "", //Required
+    "AlternativeWorkbookID": "" //Optional, only to be used if team has separate GM and player sheets
+  },
+  "Map": { //Required
+    "Constants": { //Required
+      "TileSize": 0, //Required
+      "HasHeaderTopLeft": false, //Optional, defaults to false
+      "HasHeaderBottomRight": false, //Optional, defaults to false
+      "CalculateRanges": true, //Optional, defaults to true
+      "CalculatePairedUnitRanges": true, //Optional, defaults to true
+      "ItemMaxRangeAllowedForCalculation": 15, //Optional, defaults to 15
+      "UnitMovementStatName": "Mov", //Optional, defaults to "Mov"
+      "CoordinateFormat": 0 //Optional, defaults to XY (0). 0 = XY, 1 = alphanumerical
+    },
+    "MapControls": { //Required
+      "Query": {
+        "Sheet": "",
+        "Selection": "",
+        "Orientation": 2
+      },
+      "MapSwitch": 0, //Required
+      "ChapterPostURL": 0, //Optional
+      "Segments": [
+        {
+          "Title": 0, //Optional
+          "ImageURL": 0 //Required
+        }
+      ]
+    },
+    "MapTiles": { //Required
+      "Query": {
+        "Sheet": "",
+        "Selection": "A1:ZZ",
+        "Orientation": 1
+      }
+    },
+    "MapObjects": { //Optional, defaults to null
+      "Query": {
+        "Sheet": "",
+        "Selection": "A1:ZZ",
+        "Orientation": 1
+      },
+      "Name": 0, //Required
+      "Coordinate": 0, //Required
+      "HP": { //Optional
+        "Current": 0,
+        "Maximum": 0,
+        "RemainingBars": 0 //Optional
+      },
+      "RepeaterTool": { //Optional
+        "Shape": 0,
+        "Height": 0,
+        "Width": 0
+      }
+    }
+  },
+  "System": { //Required
+    "Constants": { //Required
+      "Currency": { //Optional, defaults to null
+        "CurrencySymbol": "", //Required
+        "IsSymbolLeftAligned": true, //Optional, defaults to true
+        "IncludeSpace": false //Optional, defaults to false
+      },
+      "WeaponRanks": [ "E", "D", "C", "B", "A", "S" ], //Optional, defaults to an empty list
+      "AllowNonInventoryEquippedItems": false //Optional, defaults to false
+    },
+    "InterfaceLabels": { //Optional
+      "Adjutants": "Adjutants",
+      "Battalion": "Battalion",
+      "BattleStyle": "Battle Style",
+      "Class": "Class",
+      "CombatArts": "Combat Arts",
+      "Emblem": "Emblem",
+      "Gambit": "Gambit",
+      "Inventory": "Inventory",
+      "InventorySubsections": [ "" ],
+      "Skills": "Skills",
+      "SkillSubsections": [ "" ],
+      "StatusConditions": "Status Conditions",
+      "WeaponRanks": "Weapon Ranks"
+    },
+    "Affiliations": { //Required
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "Grouping": 0, //Required
+      "SpriteURL": 0, //Optional
+      "FlipUnitSprites": 0, //Optional
+      "TextFields": [ 0 ] //Optional
+    },
+    "Classes": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "MovementType": 0, //Required
+      "Tags": [ 0 ], //Optional
+      "BattleStyle": 0, //Optional
+      "TextFields": [ 0 ] //Optional
+    },
+    "Items": { //Required
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "Category": 0, //Required
+      "WeaponRank": 0, //Optional
+      "IsAlwaysUsable": 0, //Optional
+      "UtilizedStats": [ 0 ], //Required
+      "TargetedStats": [ 0 ], //Optional
+      "DealsDamage": 0, //Required
+      "Uses": 0, //Required
+      "Stats": [ //Required
+        {
+          "SourceName": "Mt",
+          "Value": 0,
+          "InvertModifiedDisplayColors": false //Optional, defaults to false
+        }
+      ],
+      "EquippedCombatStatModifiers": [ //Optional
+        {
+          "SourceName": "Atk",
+          "Value": 0
+        }
+      ],
+      "EquippedStatModifiers": [ //Optional
+        {
+          "SourceName": "Str",
+          "Value": 0
+        }
+      ],
+      "EquippedSkills": [ //Optional
+        {
+          "Name": 0
+        }
+      ],
+      "InventoryCombatStatModifiers": [ //Optional
+        {
+          "SourceName": "Atk",
+          "Value": 0
+        }
+      ],
+      "InventoryStatModifiers": [ //Optional
+        {
+          "SourceName": "Str",
+          "Value": 0
+        }
+      ],
+      "Range": { //Required
+        "Minimum": 0, //Required
+        "Maximum": 0, //Required
+        "Shape": 0, //Optional
+        "ReduceMovementByToUse": 0 //Optional
+      },
+      "Tags": [ 0 ], //Optional, only use if Tags sheet is provided
+      "TextFields": [], //Optional
+      "GraphicURL": 0 //Optional
+    },
+    "WeaponRankBonuses": { //Optional, defaults to null
+      "Query": {
+        "Sheet": "",
+        "Selection": "",
+        "Orientation": 0
+      },
+      "Category": 0, //Required
+      "Rank": 0, //Optional
+      "CombatStatModifiers": [ //Optional
+        {
+          "SourceName": "Atk",
+          "Value": 0
+        }
+      ],
+      "StatModifiers": [ //Optional
+        {
+          "SourceName": "Mov",
+          "Value": 0
+        }
+      ]
+    },
+    "Skills": { //Optional, defaults to null
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "TextFields": [], //Optional
+      "Effects": [ //Optional
+        {
+          "Type": 0,
+          "Parameters": [ 0, 0, 0 ]
+        }
+      ]
+    },
+    "StatusConditions": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "Type": 0, //Required
+      "Turns": 0, //Optional
+      "TextFields": [ 0 ], //Optional
+      "Effects": [ //Optional
+        {
+          "Type": 0, //Required
+          "Parameters": [ 0, 0, 0 ] //Required
+        }
+      ]
+    },
+    "Tags": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "ShowOnUnit": 0, //Optional
+      "UnitAura": 0 //Optional
+    },
+    "TerrainTypes": { //Required
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "StatGroups": [ //Required
+        {
+          "AffiliationGroupings": 0, //Optional, only one item in the list should be missing this attribute
+          "HPModifier": 0, //Optional
+          "CombatStatModifiers": [ //Optional
+            {
+              "SourceName": "Avo",
+              "Value": 1
+            }
+          ],
+          "StatModifiers": [ //Optional
+            {
+              "SourceName": "Avo",
+              "Value": 0
+            }
+          ],
+          "MovementCosts": [ //Required
+            {
+              "SourceName": "Mounted",
+              "Value": 0
+            }
+          ]
+        }
+      ],
+      "WarpType": 0, //Optional, required if WarpCost provided
+      "WarpCost": 0, //Optional, required if WarpType provided
+      "CannotStopOn": 0, //Optional
+      "BlocksItems": 0, //Optional
+      "RestrictAffiliations": 0, //Optional
+      "Groupings": 0, //Optional
+      "TextFields": [ 0 ] //Optional
+    },
+    "TileObjects": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Required
+      "Size": 0, //Optional
+      "Layer": 0, //Optional
+      "Range": { //Optional
+        "Minimum": 0, //Required
+        "Maximum": 0 //Required
+      },
+      "HPModifier": 0, //Optional
+      "CombatStatModifiers": [ //Optional
+        {
+          "SourceName": 0,
+          "Value": 0
+        }
+      ],
+      "StatModifiers": [ //Optional
+        {
+          "SourceName": 0,
+          "Value": 0
+        }
+      ],
+      "TextFields": [ 0 ] //Optional
+    },
+    "CombatArts": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "WeaponRank": 0, //Optional
+      "Category": 0, //Optional
+      "UtilizedStats": [ 0 ], //Optional
+      "Range": { //Required
+        "Minimum": 0,
+        "Maximum": 0
+      },
+      "Stats": [ //Required
+        {
+          "SourceName": "Mt",
+          "Value": 0
+        }
+      ],
+      "DurabilityCost": 0,
+      "Tags": [ 0 ], //Optional
+      "TextFields": [ 0 ] //Optional
+    },
+    "Battalions": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "Gambit": 0, //Required
+      "MaxEndurance": 0, //Required
+      "Rank": 0, //Optional
+      "Stats": [ //Required
+        {
+          "SourceName": "Atk",
+          "Value": 0
+        }
+      ],
+      "StatModifiers": [ //Optional
+        {
+          "SourceName": "Str",
+          "Value": 0
+        }
+      ],
+      "TextFields": [ 0 ] //Optional
+    },
+    "Gambits": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "MaxUses": 0, //Required
+      "UtilizedStats": 0, //Optional
+      "Range": { //Required
+        "Minimum": 0,
+        "Maximum": 0
+      },
+      "Stats": [ //Required
+        {
+          "SourceName": "Mt",
+          "Value": 0
+        }
+      ],
+      "TextFields": [ 0 ] //Optional
+    },
+    "BattleStyles": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "TextFields": [ 0 ] //Optional
+    },
+    "Engravings": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "ItemStatModifiers": [ //Optional
+        {
+          "SourceName": "Mt",
+          "Value": 0
+        }
+      ],
+      "ItemRangeOverrides": { //Optional
+        "Minimum": 0,
+        "Maximum": 0
+      },
+      "CombatStatModifiers": [ //Optional
+        {
+          "SourceName": "Avo",
+          "Value": 0
+        }
+      ],
+      "StatModifiers": [ //Optional
+        {
+          "SourceName": "Str",
+          "Value": 0
+        }
+      ],
+      "Tags": [ 0 ], //Optional
+      "TextFields": [ 0 ] //Optional
+    },
+    "Emblems": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "Tagline": 0, //Optional
+      "EngagedUnitAura": 0, //Optional
+      "TextFields": [ 0 ] //Optional
+    },
+    "EngageAttacks": { //Optional
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "TextFields": [ 0 ] //Optional
+    },
+    "Adjutants": {
+      "Queries": [
+        {
+          "Sheet": "",
+          "Selection": "",
+          "Orientation": 0
+        }
+      ],
+      "Name": 0, //Required
+      "SpriteURL": 0, //Optional
+      "CombatStatModifiers": [ //Optional
+        {
+          "SourceName": "Atk",
+          "Value": 0
+        }
+      ],
+      "StatModifiers": [ //Optional
+        {
+          "SourceName": "Str",
+          "Value": 0
+        }
+      ],
+      "TextFields": [ 0 ] //Optional
+    }
+  },
+  "Units": { //Required
+    "Queries": [
+      {
+        "Sheet": "",
+        "Selection": "",
+        "Orientation": 0
+      }
+    ],
+    "Name": 0, //Required
+    "SpriteURL": 0, //Required
+    "Level": 0, //Required
+    "Classes": [ 0 ], //Optional, either Classes or MovementType must be included
+    "MovementType": 0, //Optional
+    "Affiliation": 0, //Required
+    "Coordinate": 0, //Required
+    "HP": { //Required
+      "Current": 0,
+      "Maximum": 0,
+      "RemainingBars": 0 //Optional
+    },
+    "CombatStats": [ //Required
+      {
+        "SourceName": "",
+        "SelectsUsing": 0, //Optional, defaults to None (0)
+        "Equations": [
+          {
+            "SelectValue": "", //Optional, required if "SelectsUsing" is specified
+            "Equation": "0", //Required
+            "ParserOptions": { //Required, only need to include key/values set to true
+              "EvalUnitCombatStat": true,
+              "EvalUnitStat": true,
+              "EvalUnitLevel": true,
+              "EvalWeaponUtilStat_Greatest": true,
+              "EvalWeaponUtilStat_Sum": true,
+              "EvalWeaponStat": true,
+              "EvalBattalionStat": true
+            }
+          }
+        ],
+        "Modifiers": [ //Optional
+          {
+            "SourceName": "",
+            "Value": 0
+          }
+        ],
+        "InvertModifiedDisplayColors": false //Optional, defaults to false
+      }
+    ],
+    "Stats": [ //Required
+      {
+        "SourceName": "Mov", //"Mov" is a required stat
+        "BaseValue": 0,
+        "Modifiers": [ //Optional
+          {
+            "SourceName": "",
+            "Value": 0
+          }
+        ],
+        "InvertModifiedDisplayColors": false //Optional, defaults to false
+      }
+    ],
+    "WeaponRanks": [ //Required
+      {
+        "SourceName": "Sword", //Optional, either SourceName or Type is required
+        "Type": 0, //Optional, either SourceName or Type is required
+        "Rank": 0 //Optional
+      }
+    ],
+    "Inventory": { //Required
+      "PrimaryEquippedItem": 0, //Required
+      "SecondaryEquippedItems": [ 0 ], //Optional
+      "Subsections": [ //Required
+        {
+          "Slots": [
+            {
+              "Name": 0, //Required
+              "Uses": 0, //Optional, only if Uses has its own separate cell,
+              "Engravings": [ 0 ] //Optional
+            }
+          ]
+        }
+      ]
+    },
+    "Player": 0, //Optional
+    "CharacterApplicationURL": 0, //Optional
+    "PortraitURL": 0, //Optional
+    "TextFields": [ 0 ], //Optional
+    "UnitSize": 0, //Optional
+    "HasMoved": 0, //Optional
+    "Experience": 0, //Optional
+    "HeldCurrency": 0, //Optional
+    "Tags": [ 0 ], //Optional
+    "Behavior": 0, //Optional
+    "SystemStats": [ //Optional
+      {
+        "SourceName": "Charge",
+        "BaseValue": 0,
+        "Modifiers": [ //Required
+          {
+            "SourceName": "",
+            "Value": 0
+          }
+        ],
+        "InvertModifiedDisplayColors": false, //Optional, defaults to false
+        "UsePrioritizedDisplay": false //Optional, defaults to false (true puts stat up next to HP bar)
+      }
+    ],
+    "SkillSubsections": [ //Optional
+      {
+        "Skills": [
+          {
+            "Name": 0, //Required
+            "AdditionalStats": [ //Optional
+              {
+                "SourceName": "cooldown",
+                "Value": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "StatusConditions": [ //Optional
+      {
+        "Name": 0, //Required
+        "RemainingTurns": 0, //Optional
+        "AdditionalStats": [ //Optional
+          {
+            "SourceName": "Stat",
+            "Value": 0
+          }
+        ]
+      }
+    ],
+    "CombatArts": [ 0 ], //Optional
+    "Battalion": { //Optional
+      "Battalion": 0, //Required
+      "Endurance": 0, //Required
+      "GambitUses": 0 //Required
+    },
+    "Adjutants": [ 0 ], //Optional
+    "Emblem": { //Optional
+      "Name": 0, //Required
+      "BondLevel": 0, //Optional
+      "EngageMeterCount": 0, //Required
+      "IsEngaged": 0, //Required
+      "SyncSkills": [ //Optional
+        {
+          "Name": 0, //Required
+          "AdditionalStats": [ //Optional
+            {
+              "SourceName": "cooldown",
+              "Value": 0
+            }
+          ]
+        }
+      ],
+      "EngageSkills": [ //Optional
+        {
+          "Name": 0, //Required
+          "AdditionalStats": [ //Optional
+            {
+              "SourceName": "cooldown",
+              "Value": 0
+            }
+          ]
+        }
+      ],
+      "EngageWeapons": [ 0 ], //Optional
+      "EngageAttacks": [ 0 ] //Optional
+    }
+  },
+  "Convoy": { //Optional
+    "Query": {
+      "Sheet": "",
+      "Selection": "",
+      "Orientation": 0
+    },
+    "Name": 0, //Required
+    "Owner": 0, //Required
+    "Quantity": 0, //Optional
+    "Value": 0, //Optional
+    "Uses": 0 //Optional
+  },
+  "Shop": { //Optional
+    "Query": {
+      "Sheet": "",
+      "Selection": "",
+      "Orientation": 0
+    },
+    "Name": 0, //Required
+    "Stock": 0, //Required
+    "Price": 0, //Required
+    "SalePrice": 0, //Optional
+    "IsNew": 0 //Optional
+  }
+}
