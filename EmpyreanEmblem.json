@@ -1,198 +1,152 @@
 {
-  "Team": { //Required
-    "Name": "Team X", //Required. String is formatted for UI display, JSON file name must match this value sans spaces
-    "WorkbookID": "", //Required
-    "AlternativeWorkbookID": "" //Optional, only to be used if team has separate GM and player sheets
+  "Team": { 
+    "Name": "Empyrean Emblem",
+    "WorkbookID": "1-RQUwuOUYL-QFPtQsS7cGEhdIG0F0qFy--khcBHeYEc",
   },
   "Map": { //Required
-    "Constants": { //Required
+    "Constants": { 
       "TileSize": 0, //Required
-      "HasHeaderTopLeft": false, //Optional, defaults to false
-      "HasHeaderBottomRight": false, //Optional, defaults to false
-      "CalculateRanges": true, //Optional, defaults to true
-      "CalculatePairedUnitRanges": true, //Optional, defaults to true
-      "ItemMaxRangeAllowedForCalculation": 15, //Optional, defaults to 15
-      "UnitMovementStatName": "Mov", //Optional, defaults to "Mov"
-      "CoordinateFormat": 0 //Optional, defaults to XY (0). 0 = XY, 1 = alphanumerical
+      "HasHeaderTopLeft": true, 
+      "HasHeaderBottomRight": false, 
+      "CalculateRanges": true,
+      "ItemMaxRangeAllowedForCalculation": 20,
+      "UnitMovementStatName": "Mov", 
+      "CoordinateFormat": 1
     },
-    "MapControls": { //Required
+    "MapControls": {
       "Query": {
-        "Sheet": "",
-        "Selection": "",
+        "Sheet": "System Control",
+        "Selection": "C1:C",
         "Orientation": 2
       },
-      "MapSwitch": 0, //Required
-      "ChapterPostURL": 0, //Optional
+      "MapSwitch": 0,
+      "ChapterPostURL": 1,
       "Segments": [
         {
-          "Title": 0, //Optional
-          "ImageURL": 0 //Required
+          "Title": 2,
+          "ImageURL": 3
         }
       ]
     },
-    "MapTiles": { //Required
+    "MapTiles": {
       "Query": {
-        "Sheet": "",
+        "Sheet": "Map Tiles",
         "Selection": "A1:ZZ",
         "Orientation": 1
       }
     },
-    "MapObjects": { //Optional, defaults to null
+    "MapObjects": {
       "Query": {
-        "Sheet": "",
-        "Selection": "A1:ZZ",
+        "Sheet": "Map Objects",
+        "Selection": "A2:G",
         "Orientation": 1
       },
-      "Name": 0, //Required
-      "Coordinate": 0, //Required
-      "HP": { //Optional
-        "Current": 0,
-        "Maximum": 0,
-        "RemainingBars": 0 //Optional
+      "Name": 0,
+      "Coordinate": 1,
+      "HP": {
+        "Current": 2,
+        "Maximum": 3,
       },
-      "RepeaterTool": { //Optional
-        "Shape": 0,
-        "Height": 0,
-        "Width": 0
+      "RepeaterTool": {
+        "Shape": 4,
+        "Height": 5,
+        "Width": 6
       }
     }
   },
-  "System": { //Required
-    "Constants": { //Required
-      "Currency": { //Optional, defaults to null
-        "CurrencySymbol": "", //Required
-        "IsSymbolLeftAligned": true, //Optional, defaults to true
-        "IncludeSpace": false //Optional, defaults to false
+  "System": {
+    "Constants": {
+      "Currency": {
+        "CurrencySymbol": "Ϫ",
+        "IsSymbolLeftAligned": true,
+        "IncludeSpace": false
       },
       "WeaponRanks": [ "E", "D", "C", "B", "A", "S" ], //Optional, defaults to an empty list
       "AllowNonInventoryEquippedItems": false //Optional, defaults to false
     },
-    "InterfaceLabels": { //Optional
-      "Adjutants": "Adjutants",
-      "Battalion": "Battalion",
-      "BattleStyle": "Battle Style",
-      "Class": "Class",
-      "CombatArts": "Combat Arts",
-      "Emblem": "Emblem",
-      "Gambit": "Gambit",
+    "InterfaceLabels": {
+      "Class": "Class / Frame",
       "Inventory": "Inventory",
-      "InventorySubsections": [ "" ],
-      "Skills": "Skills",
-      "SkillSubsections": [ "" ],
+      "Skills": "Attributes",
+      "SkillSubsections": [ "Skills", "Frame Traits" ],
       "StatusConditions": "Status Conditions",
       "WeaponRanks": "Weapon Ranks"
     },
     "Affiliations": { //Required
       "Queries": [
         {
-          "Sheet": "",
-          "Selection": "",
+          "Sheet": "Affiliations",
+          "Selection": "A2:D",
           "Orientation": 0
         }
       ],
-      "Name": 0, //Required
-      "Grouping": 0, //Required
-      "SpriteURL": 0, //Optional
-      "FlipUnitSprites": 0, //Optional
-      "TextFields": [ 0 ] //Optional
+      "Name": 0,
+      "Grouping": 1,
+      "FlipUnitSprites": 2,
+      "TextFields": [ 3 ]
     },
-    "Classes": { //Optional
+    "Classes": { //Optional //TODO Will probably need help sorting this out so it plays nice.
       "Queries": [
         {
-          "Sheet": "",
-          "Selection": "",
+          "Sheet": "Classes",
+          "Selection": "A2:D",
+          "Orientation": 0
+        }, 
+        {
+          "Sheet": "Enemy Types",
+          "Selection": "A2:D",
+          "Orientation": 0
+        },
+        {
+          "Sheet": "Frames",
+          "Selection": "A2:D",
           "Orientation": 0
         }
       ],
-      "Name": 0, //Required
-      "MovementType": 0, //Required
-      "Tags": [ 0 ], //Optional
-      "BattleStyle": 0, //Optional
-      "TextFields": [ 0 ] //Optional
+      "Name": 0,
+      "MovementType": 3,
+      "Tags": [ 2 ],
+        "TextFields": [ 1 ]
     },
     "Items": { //Required
       "Queries": [
         {
-          "Sheet": "",
-          "Selection": "",
+          "Sheet": "Items",
+          "Selection": "A2:Q",
           "Orientation": 0
         }
       ],
-      "Name": 0, //Required
-      "SpriteURL": 0, //Optional
-      "Category": 0, //Required
-      "WeaponRank": 0, //Optional
-      "IsAlwaysUsable": 0, //Optional
-      "UtilizedStats": [ 0 ], //Required
-      "TargetedStats": [ 0 ], //Optional
-      "DealsDamage": 0, //Required
-      "Uses": 0, //Required
-      "Stats": [ //Required
+      "Name": 0,
+      "SpriteURL": 16,
+      "Category": 1,
+      "WeaponRank": 2,
+      "UtilizedStats": [ 12 ],
+      "TargetedStats": [ 13 ],
+      "DealsDamage": 15,
+      "Uses": 3,
+      "Stats": [
         {
           "SourceName": "Mt",
-          "Value": 0,
-          "InvertModifiedDisplayColors": false //Optional, defaults to false
-        }
-      ],
-      "EquippedCombatStatModifiers": [ //Optional
+          "Value": 4,
+        },
         {
-          "SourceName": "Atk",
-          "Value": 0
-        }
-      ],
-      "EquippedStatModifiers": [ //Optional
+          "SourceName": "Hit",
+          "Value": 5,
+        },
         {
-          "SourceName": "Str",
-          "Value": 0
-        }
-      ],
-      "EquippedSkills": [ //Optional
+          "SourceName": "Crit",
+          "Value": 6,
+        },
         {
-          "Name": 0
-        }
+          "SourceName": "Effective",
+          "Value": 14,
+        },
       ],
-      "InventoryCombatStatModifiers": [ //Optional
-        {
-          "SourceName": "Atk",
-          "Value": 0
-        }
-      ],
-      "InventoryStatModifiers": [ //Optional
-        {
-          "SourceName": "Str",
-          "Value": 0
-        }
-      ],
-      "Range": { //Required
-        "Minimum": 0, //Required
-        "Maximum": 0, //Required
-        "Shape": 0, //Optional
-        "ReduceMovementByToUse": 0 //Optional
+      "Range": {
+        "Minimum": 7,
+        "Maximum": 8,
       },
-      "Tags": [ 0 ], //Optional, only use if Tags sheet is provided
-      "TextFields": [], //Optional
-      "GraphicURL": 0 //Optional
-    },
-    "WeaponRankBonuses": { //Optional, defaults to null
-      "Query": {
-        "Sheet": "",
-        "Selection": "",
-        "Orientation": 0
-      },
-      "Category": 0, //Required
-      "Rank": 0, //Optional
-      "CombatStatModifiers": [ //Optional
-        {
-          "SourceName": "Atk",
-          "Value": 0
-        }
-      ],
-      "StatModifiers": [ //Optional
-        {
-          "SourceName": "Mov",
-          "Value": 0
-        }
-      ]
+      "TextFields": [11], //Optional
     },
     "Skills": { //Optional, defaults to null
       "Queries": [
