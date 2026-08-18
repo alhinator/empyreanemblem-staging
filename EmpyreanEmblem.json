@@ -3,9 +3,9 @@
     "Name": "Empyrean Emblem",
     "WorkbookID": "1-RQUwuOUYL-QFPtQsS7cGEhdIG0F0qFy--khcBHeYEc",
   },
-  "Map": { //Required
+  "Map": {
     "Constants": { 
-      "TileSize": 0, //Required
+      "TileSize": 16,
       "HasHeaderTopLeft": true, 
       "HasHeaderBottomRight": false, 
       "CalculateRanges": true,
@@ -148,128 +148,154 @@
       },
       "TextFields": [11], //Optional
     },
-    "Skills": { //Optional, defaults to null
+    "Skills": {
       "Queries": [
         {
-          "Sheet": "",
-          "Selection": "",
+          "Sheet": "Skills",
+          "Selection": "A2:G",
+          "Orientation": 0
+        },
+        {
+          "Sheet": "Frame Traits",
+          "Selection": "A2:G",
           "Orientation": 0
         }
       ],
-      "Name": 0, //Required
-      "SpriteURL": 0, //Optional
-      "TextFields": [], //Optional
-      "Effects": [ //Optional
+      "Name": 0,
+      "TextFields": [2],
+      "Effects": [
         {
-          "Type": 0,
-          "Parameters": [ 0, 0, 0 ]
+          "Type": 3,
+          "Parameters": [ 4, 5, 6 ]
         }
       ]
     },
-    "StatusConditions": { //Optional
+    "StatusConditions": {
       "Queries": [
         {
-          "Sheet": "",
-          "Selection": "",
+          "Sheet": "Status Conditions",
+          "Selection": "A2:F",
           "Orientation": 0
         }
       ],
-      "Name": 0, //Required
-      "SpriteURL": 0, //Optional
-      "Type": 0, //Required
-      "Turns": 0, //Optional
-      "TextFields": [ 0 ], //Optional
-      "Effects": [ //Optional
-        {
-          "Type": 0, //Required
-          "Parameters": [ 0, 0, 0 ] //Required
-        }
-      ]
+      "Name": 0,
+      "SpriteURL": 4,
+      "Type": 2,
+      "Turns": 1,
+      "TextFields": [ 5 ],
     },
-    "Tags": { //Optional
+    "Tags": {
       "Queries": [
         {
-          "Sheet": "",
-          "Selection": "",
+          "Sheet": "Tags",
+          "Selection": "A2:E",
           "Orientation": 0
         }
       ],
-      "Name": 0, //Required
-      "SpriteURL": 0, //Optional
-      "ShowOnUnit": 0, //Optional
-      "UnitAura": 0 //Optional
+      "Name": 1,
+      "SpriteURL": 2,
+      "ShowOnUnit": 3,
+      "UnitAura": 4
     },
     "TerrainTypes": { //Required
       "Queries": [
         {
-          "Sheet": "",
-          "Selection": "",
+          "Sheet": "Terrain Types",
+          "Selection": "A2:O",
           "Orientation": 0
         }
       ],
-      "Name": 0, //Required
+      "Name": 0,
       "StatGroups": [ //Required
         {
-          "AffiliationGroupings": 0, //Optional, only one item in the list should be missing this attribute
-          "HPModifier": 0, //Optional
-          "CombatStatModifiers": [ //Optional
+          "AffiliationGroupings": "1, 2, 3",
+          "HPModifier": 3,
+          "CombatStatModifiers": [
             {
               "SourceName": "Avo",
               "Value": 1
+            }            
+          ],
+          "StatModifiers": [
+            {
+              "SourceName": "KDef",
+              "Value": 2
+            },
+            {
+              "SourceName": "NDef",
+              "Value": 2
+            },
+            {
+              "SourceName": "XDef",
+              "Value": 2
             }
           ],
-          "StatModifiers": [ //Optional
+          "MovementCosts": [
             {
-              "SourceName": "Avo",
-              "Value": 0
-            }
-          ],
-          "MovementCosts": [ //Required
+              "SourceName": "Grounded",
+              "Value": 5
+            },
             {
-              "SourceName": "Mounted",
-              "Value": 0
+              "SourceName": "Treads",
+              "Value": 6
+            },
+            {
+              "SourceName": "Flier",
+              "Value": 7
+            },
+            {
+              "SourceName": "Armour",
+              "Value": 8
             }
           ]
         }
       ],
-      "WarpType": 0, //Optional, required if WarpCost provided
-      "WarpCost": 0, //Optional, required if WarpType provided
-      "CannotStopOn": 0, //Optional
-      "BlocksItems": 0, //Optional
-      "RestrictAffiliations": 0, //Optional
-      "Groupings": 0, //Optional
-      "TextFields": [ 0 ] //Optional
+      "WarpType": 9,
+      "WarpCost": 10,
+      "CannotStopOn": 11,
+      "BlocksItems": 12, 
+      "RestrictAffiliations": 13,
+      "Groupings": 14,
+      "TextFields": [ 4 ] //Optional
     },
-    "TileObjects": { //Optional
+    "TileObjects": {
       "Queries": [
         {
-          "Sheet": "",
-          "Selection": "",
+          "Sheet": "Tile Object Templates",
+          "Selection": "A2:M",
           "Orientation": 0
         }
       ],
       "Name": 0, //Required
-      "SpriteURL": 0, //Required
-      "Size": 0, //Optional
-      "Layer": 0, //Optional
+      "SpriteURL": 1, //Required
+      "Size": 4, //Optional
+      "Layer": 3, //Optional
       "Range": { //Optional
-        "Minimum": 0, //Required
-        "Maximum": 0 //Required
+        "Minimum": 9, //Required
+        "Maximum": 10 //Required
       },
-      "HPModifier": 0, //Optional
+      "HPModifier": 8, //Optional
       "CombatStatModifiers": [ //Optional
         {
-          "SourceName": 0,
-          "Value": 0
+          "SourceName": "Avo",
+          "Value": 6
         }
       ],
       "StatModifiers": [ //Optional
         {
-          "SourceName": 0,
-          "Value": 0
+          "SourceName": KDef,
+          "Value": 7
+        },
+        {
+          "SourceName": NDef,
+          "Value": 7
+        },
+        {
+          "SourceName": XDef,
+          "Value": 7
         }
       ],
-      "TextFields": [ 0 ] //Optional
+      "TextFields": [ 11 ] //Optional
     },
     "CombatArts": { //Optional
       "Queries": [
