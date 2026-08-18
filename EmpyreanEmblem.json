@@ -61,8 +61,8 @@
         "IsSymbolLeftAligned": true,
         "IncludeSpace": false
       },
-      "WeaponRanks": [ "E", "D", "C", "B", "A", "S" ], //Optional, defaults to an empty list
-      "AllowNonInventoryEquippedItems": false //Optional, defaults to false
+      "WeaponRanks": [ "E", "D", "C", "B", "A", "S" ],
+      "AllowNonInventoryEquippedItems": false
     },
     "InterfaceLabels": {
       "Class": "Class / Frame",
@@ -72,7 +72,7 @@
       "StatusConditions": "Status Conditions",
       "WeaponRanks": "Weapon Ranks"
     },
-    "Affiliations": { //Required
+    "Affiliations": {
       "Queries": [
         {
           "Sheet": "Affiliations",
@@ -85,7 +85,7 @@
       "FlipUnitSprites": 2,
       "TextFields": [ 3 ]
     },
-    "Classes": { //Optional //TODO Will probably need help sorting this out so it plays nice.
+    "Classes": {
       "Queries": [
         {
           "Sheet": "Classes",
@@ -263,7 +263,7 @@
       "Groupings": 14,
       "TextFields": [ 4 ]
     },
-    "TileObjects": { // TODO: how to add a movement override via tile object eg. door
+    "TileObjects": { //TODO: can these have affiliation restrictions and/or movement overrides?
       "Queries": [
         {
           "Sheet": "Tile Object Templates",
@@ -271,22 +271,22 @@
           "Orientation": 1
         }
       ],
-      "Name": 0, //Required
-      "SpriteURL": 1, //Required
-      "Size": 4, //Optional
-      "Layer": 3, //Optional
-      "Range": { //Optional
-        "Minimum": 8, //Required
-        "Maximum": 9 //Required
+      "Name": 0,
+      "SpriteURL": 1,
+      "Size": 4,
+      "Layer": 3,
+      "Range": {
+        "Minimum": 8,
+        "Maximum": 9
       },
-      "HPModifier": 7, //Optional
-      "CombatStatModifiers": [ //Optional
+      "HPModifier": 7,
+      "CombatStatModifiers": [
         {
           "SourceName": "Avo",
           "Value": 5
         }
       ],
-      "StatModifiers": [ //Optional
+      "StatModifiers": [
         {
           "SourceName": KDef,
           "Value": 6
@@ -300,7 +300,7 @@
           "Value": 6
         }
       ],
-      "TextFields": [ 10 ] //Optional
+      "TextFields": [ 10 ]
     }
   },
   "Units": {
@@ -444,7 +444,7 @@
       {
         "SourceName": "Mov",
         "BaseValue": 23,
-        "InvertModifiedDisplayColors": false //Optional, defaults to false
+        "InvertModifiedDisplayColors": false
       }
     ],
     "WeaponRanks": [
